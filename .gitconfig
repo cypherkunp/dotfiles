@@ -1,0 +1,28 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Devvrat
+	email = devvratshukla@gmail.com
+[core]
+	excludesfile = /Users/devshukl1/.gitignore_global
+	editor = code --wait
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/devshukl1/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[alias]
+	fomo = !git fetch origin main && git rebase origin/main
+	main = !git checkout main && git pull
+	back = !git checkout -
+	new = !git checkout main && git pull && git checkout -b
+	out = !git checkout
+	amend = !git commit --amend
+	refresh = !git add . && git stash && git checkout main && git pull && git checkout - && git rebase main && git stash pop
+[commit]
+	template = /Users/devshukl1/.stCommitMsg

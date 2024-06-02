@@ -1,0 +1,8 @@
+# Ignore everything
+/*
+
+# But allow files and directories starting with a period
+!/.config*
+!/.gitconfig
+!/.zshrc
+!/.gitignore
