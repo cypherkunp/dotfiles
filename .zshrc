@@ -1,20 +1,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Autocomplete
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# # Path to your oh-my-zsh installation.
+# export ZSH="$HOME/.oh-my-zsh"
 
 
-# Theme for oh-my-zsh
-ZSH_THEME="robbyrussell"
+# # Theme for oh-my-zsh
+# ZSH_THEME="robbyrussell"
 
 
-# Plugins
-plugins=(git)
+# # Plugins
+# plugins=(git)
 
 
-# Source
-source $ZSH/oh-my-zsh.sh
+# # Source
+# source $ZSH/oh-my-zsh.sh
 
 
 # Aliases
@@ -58,3 +61,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+eval "$(starship init zsh)"

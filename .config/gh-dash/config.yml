@@ -1,43 +1,59 @@
 prSections:
   - title: My Pull Requests
     filters: is:open author:@me
-    layout:
-      author:
-        hidden: true
-        # width: <number of columns>
-        # grow: <bool> this will make the column grow in size
   - title: Needs My Review
     filters: is:open review-requested:@me
-  - title: Subscribed
-    filters: is:open -author:@me repo:cli/cli repo:dlvhdr/gh-dash
-    limit: 50 # optional limit of rows fetched for this section
+  - title: Involved
+    filters: is:open involves:@me -author:@me
 issuesSections:
-  - title: Created
+  - title: My Issues
     filters: is:open author:@me
   - title: Assigned
     filters: is:open assignee:@me
-  - title: Subscribed
-    filters: is:open -author:@me repo:microsoft/vscode repo:dlvhdr/gh-dash
+  - title: Involved
+    filters: is:open involves:@me -author:@me
 defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
   layout:
     prs:
+      updatedAt:
+        width: 7
       repo:
-        grow: true,
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
         width: 10
-        hidden: false
-    # issues: same structure as prs
-  prsLimit: 20 # global limit
-  issuesLimit: 20 # global limit
-  preview:
-    open: true # whether to have the preview pane open by default
-    width: 60 # width in columns
-  refetchIntervalMinutes: 30 # will refetch all sections every 30 minutes
-repoPaths: # configure where to locate repos when checking out PRs
-  :owner/:repo: ~/src/github.com/:owner/:repo # template if you always clone github repos in a consistent location
-  dlvhdr/*: ~/code/repos/dlvhdr/* # will match dlvhdr/repo-name to ~/code/repos/dlvhdr/repo-name
-  dlvhdr/gh-dash: ~/code/gh-dash # will not match wildcard and map to specified path
-keybindings: # optional, define custom keybindings - see more info below
-theme: # optional, see more info below
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  issues: []
+  prs: []
+repoPaths: {}
+theme:
+  ui:
+    table:
+      showSeparator: true
 pager:
-  diff: less # or delta for example
-confirmQuit: false # show prompt on quit or not
+  diff: ""
+confirmQuit: false
