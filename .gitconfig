@@ -9,12 +9,6 @@
 [core]
 	excludesfile = /Users/devshukl1/.gitignore_global
 	editor = code --wait
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/devshukl1/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 
 [alias]
 	fomo = !git fetch origin main && git rebase origin/main
